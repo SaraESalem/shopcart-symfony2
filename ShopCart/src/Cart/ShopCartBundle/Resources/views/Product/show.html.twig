@@ -1,0 +1,115 @@
+{% extends "::base.html.twig" %}
+
+{%block searchcategory %}
+    <div id="templatmeo_sidebar">
+    <div class="sidebar_section">
+        <h2>Search Any Item</h2>
+        <div class="sidebar_section_content">
+
+            <form action="#" method="get">
+                <input type="text" value="Enter a keyword..." name="q" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+                <input type="submit" name="Search" value="Search" alt="Search" id="searchbutton" title="Search" />
+            </form>    
+
+            <div class="cleaner"></div>
+        </div>
+
+    </div>
+               <div class="sidebar_section">
+
+                    <h2>Categories</h2>
+
+                    <div class="sidebar_section_content">
+
+                        <div id='cssmenu'>
+                            <ul>
+
+                                <li class='active has-sub'><a href='#'><span>Clothes</span></a>
+                                    <ul>
+                                        <li class='last'><a href='#'><span>T-shirts</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>Dresses</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>Paints</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>jackets</span></a>
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class='active has-sub'><a href='#'><span>Footware</span></a>
+                                    <ul>
+                                        <li class='last'><a href='#'><span>high heels</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>boots</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>sneakers</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>slippers</span></a>
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class='active has-sub'><a href='#'><span>Makeup</span></a>
+                                    <ul>
+                                        <li class='last'><a href='#'><span>lip stick</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>eye shadow</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>blusher</span></a>
+
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+         </div> <!-- end of templatemo_slider -->     
+{%endblock%}
+
+{%block content_section %}
+    <div class="center_content">
+
+        <div class="prod_box_big">
+            <div class="center_prod_box_big">
+
+                <div class="product_img_big"> 
+
+                    <img src="{{asset(['bundles/cartshopcart/images/',productID.image]|join)}}" alt="product" border="0"/>        
+
+                </div>
+                <div class="details_big_box">
+                    <div class="product_title_big">{{ productID.name }}</div>
+                    <div class="specifications">
+                        {% if productID.available == 'true' %}
+                            Available: <span class="blue">In stock</span><br /><br/>
+                        {% endif %}
+                        Description :<br/><span class="blue"> {{ productID.description }}</span><br />
+                    </div>
+                    <br/>
+                    <div class="prod_price_big">Price:<span class="price">{{ productID.price }}$</span></div>
+                    {% if productID.available == 'true' %}
+                        <a href="{{ url('add_to_ordercart', {'cartprodId':productID.id,'carttype':1})}}" class="prod_buy">add to cart</a> 
+                    {% else %}
+                        <a href="{{  url('add_to_wishcart', {'wishprodId':productID.id,'carttype':10})}}" class="prod_compare">add to wishlist</a> 
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%endblock%}
+
+

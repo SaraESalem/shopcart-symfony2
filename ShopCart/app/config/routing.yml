@@ -1,0 +1,4 @@
+cart_shop_cart:
+    resource: "@CartShopCartBundle/Resources/config/routing.yml"
+    prefix:   /
+

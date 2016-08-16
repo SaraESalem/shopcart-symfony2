@@ -1,0 +1,34 @@
+index:
+    path:     /
+    defaults: { _controller: CartShopCartBundle:Product:index }
+    
+show:
+    path:     /show/{productId}
+    defaults: { _controller: CartShopCartBundle:Product:show }
+   
+
+add_to_ordercart:
+    path:     /addOrder/{cartprodId}/{carttype}
+    defaults: { _controller: CartShopCartBundle:Cart:addOrder }
+
+add_to_wishcart:
+    path:     /addWish/{wishprodId}/{carttype}
+    defaults: { _controller: CartShopCartBundle:Cart:addWish }    
+
+show_cart:
+    path:     /showCart/{carttype}
+    defaults: { _controller: CartShopCartBundle:Cart:showCart }
+
+delete:
+    path:     /delete/{prodId}/{carttype}
+    defaults: { _controller: CartShopCartBundle:Cart:delete }
+
+empty:
+    path:     /empty/{carttype}
+    defaults: { _controller: CartShopCartBundle:Cart:empty }
+
+
+edit:
+    path:     /edit
+    defaults: { _controller: CartShopCartBundle:Cart:edit }
+    

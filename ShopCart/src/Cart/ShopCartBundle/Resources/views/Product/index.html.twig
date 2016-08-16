@@ -1,0 +1,106 @@
+{% extends "::base.html.twig" %}
+
+{%block searchcategory %}
+    <div id="templatmeo_sidebar">
+    <div class="sidebar_section">
+        <h2>Search Any Item</h2>
+        <div class="sidebar_section_content">
+
+            <form action="#" method="get">
+                <input type="text" value="Enter a keyword..." name="q" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+                <input type="submit" name="Search" value="Search" alt="Search" id="searchbutton" title="Search" />
+            </form>    
+
+            <div class="cleaner"></div>
+        </div>
+
+    </div>
+               <div class="sidebar_section">
+
+                    <h2>Categories</h2>
+
+                    <div class="sidebar_section_content">
+
+                        <div id='cssmenu'>
+                            <ul>
+
+                                <li class='active has-sub'><a href='#'><span>Clothes</span></a>
+                                    <ul>
+                                        <li class='last'><a href='#'><span>T-shirts</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>Dresses</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>Paints</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>jackets</span></a>
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class='active has-sub'><a href='#'><span>Footware</span></a>
+                                    <ul>
+                                        <li class='last'><a href='#'><span>high heels</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>boots</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>sneakers</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>slippers</span></a>
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class='active has-sub'><a href='#'><span>Makeup</span></a>
+                                    <ul>
+                                        <li class='last'><a href='#'><span>lip stick</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>eye shadow</span></a>
+
+                                        </li>
+                                        <li class='last'><a href='#'><span>blusher</span></a>
+
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+         </div> <!-- end of templatemo_slider -->     
+{%endblock%}
+
+{%block content_section %}
+    <div class="content_section">
+
+        <h2>New Products</h2>
+
+        {% for pro in products %}
+            <div class="product_box "> <!--class margin_r40-->
+
+                <div class="image_wrapper"><a href="{{ path('show', {'productId':pro.id}) }}" target="_parent"><img src="{{asset(['bundles/cartshopcart/images/',pro.image]|join)}}" alt="product" /></a></div>
+                <h3>{{ pro.name }}</h3>
+                <p>{{ pro.description }}</p>
+                <p class="price">Price: ${{ pro.price }}</p>
+                <a href="{{ path('show', {'productId':pro.id}) }}">Detail</a> | <a href="{{ path('show', {'productId':pro.id}) }}">Buy Now</a>
+
+
+            </div>
+
+        {% else %}
+            <h3><em>No products found!</em></h3>
+        {% endfor %}
+
+
+    </div> <!-- cntent div who wrap body-->
+{%endblock%}
+

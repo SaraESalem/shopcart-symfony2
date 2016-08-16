@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/php/xamp_server/htdocs/projects/ShopCart/src/Cart/ShopCartBundle/Controller/CartController.php</file>
+            <file>file:/E:/php/xamp_server/htdocs/projects/ShopCart/app/Resources/views/base.html.twig</file>
+            <file>file:/E:/php/xamp_server/htdocs/projects/ShopCart/src/Cart/ShopCartBundle/Resources/views/Cart/showCart.html.twig</file>
+            <file>file:/E:/php/xamp_server/htdocs/projects/ShopCart/src/Cart/ShopCartBundle/Resources/config/routing.yml</file>
+            <file>file:/E:/php/xamp_server/htdocs/projects/ShopCart/src/Cart/ShopCartBundle/Repository/CartRepository.php</file>
+            <file>file:/E:/php/xamp_server/htdocs/projects/ShopCart/src/Cart/ShopCartBundle/Resources/views/Cart/edit.html.twig</file>
+        </group>
+    </open-files>
+</project-private>

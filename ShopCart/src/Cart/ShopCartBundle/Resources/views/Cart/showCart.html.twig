@@ -1,0 +1,98 @@
+{% extends "::base.html.twig" %}
+{%block javascripts %}
+    <script type="text/javascript">
+        function run(selTag, price, cartID) {
+            //edit quantity
+            newquantity = selTag.options[selTag.selectedIndex].text;
+
+            //alert(newquantity + "  " + price + " " +{{carttype}} + " " + cartID);
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function ()
+            {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                {
+
+                    document.getElementById("bodyid").innerHTML = xmlhttp.responseText;
+                }
+            }
+            //{'carttype':{{carttype}}, 'newquantity': newquantity, 'price': price, 'cartID': cartID}
+            xmlhttp.open("POST", "{{ path('edit') }}", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("carttype={{carttype}}&newquantity=" + newquantity + "&price=" + price + "&cartID=" + cartID + "");
+
+        }
+    </script>
+{% endblock %}
+{%block searchcategory %}
+    
+        <br/><br/>
+        {%if carttype == 1 %}
+            <h1>My Shop Cart   
+                <span style="margin-left: 300px">
+                    Total: {% set sum = 0 %}{% for pro in products %}{% set sum = sum + pro.totalprice %}{% endfor %}{{ sum }}$ </span> 
+                <a href="#" class="prod_buyx">CHECKOUT</a> 
+
+                <a href="{{url('empty', {'carttype':1})}}" target="_parent" style="float:right">
+                    <img src="{{asset('bundles/cartshopcart/images/em.png')}}" alt="empty" width="50px" height="50px" style="float:right"/>
+                </a>
+
+            </h1> 
+
+        {%else%}
+            <h1>My Wish List        <a href="{{url('empty', {'carttype':10})}}" target="_parent" style="float:right"><img src="{{asset('bundles/cartshopcart/images/em.png')}}" alt="empty" width="50px" height="50px" style="float:right"/></a></h1>
+                {%endif%}
+
+
+        <hr/>
+        <br/><br/>
+        <div class="content_section">
+
+            {% for pro in products %}
+                <div class="product_box "> <!--class margin_r40-->
+
+                    <div class="image_wrapper">
+                        <a href="#" target="_parent"><img src="{{asset(['bundles/cartshopcart/images/',pro.prodid.image]|join)}}" alt="product" /></a></div>
+                    <h3>{{pro.prodid.name}} </h3>
+                    {%if pro.carttype == 1 %}
+                        <p class="price">quantity:
+                            <select id="quantselected" onchange="run(this,{{pro.prodid.price}} ,{{pro.id}} )">
+                                {% for i in 1..pro.prodid.amount %}
+                                    <option value="{{i}}" {% if i == pro.prodquantity %}selected {%endif%}>{{i}}</option>
+                                {% endfor %}
+                            </select>
+                        </p>
+                    {%endif%}
+                    <p class="price">
+                        {%if pro.carttype == 1 %}
+                            Total Price: ${{ pro.totalprice }}
+                        {%else%}
+                            Not Available
+                        {%endif%}
+                    </p>
+                    {%if pro.carttype == 1 %}
+                        <a href="{{ url('delete', {'prodId':pro.prodid.id,'carttype':1})}}">Delete</a>
+                    {%else%}
+                        <a href="{{ url('delete', {'prodId':pro.prodid.id,'carttype':10})}}">Delete</a>
+                    {%endif%}
+                </div>
+
+            {% else %}
+                <h3><em>No products found!</em></h3>
+            {% endfor %}
+
+
+        </div> <!-- cntent div who wrap body-->
+    
+
+{%endblock%}
+
+
+

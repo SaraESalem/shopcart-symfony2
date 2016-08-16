@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: 'E:/php/xamp_server/htdocs/projects/ShopCart/app/config/routing_dev.yml'

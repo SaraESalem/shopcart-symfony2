@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Cart\ShopCartBundle\Entity\Cart" table="cart"
+  repository-class="Cart\ShopCartBundle\Repository\CartRepository">
+    <indexes>
+      <index name="prodid" columns="prodid"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="prodquantity" type="integer" column="prodquantity" nullable="false"/>
+    <field name="totalprice" type="float" column="totalprice" precision="10" scale="0" nullable="false"/>
+    <field name="carttype" type="integer" column="carttype" nullable="false"/>
+    <many-to-one field="prodid" target-entity="Product">
+      <join-columns>
+        <join-column name="prodid" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

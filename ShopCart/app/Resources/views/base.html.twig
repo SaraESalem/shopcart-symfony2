@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>{% block title %}Shoe Store{% endblock %}</title>
+        <meta name="keywords" content="Shoe Store, Free Template, templatemo.com" />
+        <meta name="description" content="Shoe Store - Free Website Template provided by templatemo.com" />
+
+        <link href="{{asset('bundles/cartshopcart/css/templatemo_style.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="{{asset('bundles/cartshopcart/css/styles.css')}}" />
+        {%block javascripts %}
+
+        {% endblock %}
+
+        <script language="javascript" type="text/javascript">
+            function clearText(field)
+            {
+                if (field.defaultValue == field.value)
+                    field.value = '';
+                else if (field.value == '')
+                    field.value = field.defaultValue;
+            }
+        </script>
+        <script language="javascript" type="text/javascript" src="{{asset('bundles/cartshopcart/js/mootools-1.2.1-core.js')}}"></script>
+        <script language="javascript" type="text/javascript" src="{{asset('bundles/cartshopcart/js/mootools-1.2-more.js')}}"></script>
+        <script language="javascript" type="text/javascript" src="{{asset('bundles/cartshopcart/js/slideitmoo-1.1.js')}}"></script>
+        <script language="javascript" type="text/javascript">
+            window.addEvents({
+                'domready': function () {
+                    /* thumbnails example , div containers */
+                    new SlideItMoo({
+                        overallContainer: 'SlideItMoo_outer',
+                        elementScrolled: 'SlideItMoo_inner',
+                        thumbsContainer: 'SlideItMoo_items',
+                        itemsVisible: 6,
+                        elemsSlide: 2,
+                        duration: 160,
+                        itemsSelector: '.SlideItMoo_element',
+                        itemWidth: 140,
+                        showControls: 1});
+                },
+            });
+        </script>
+
+    </head>
+    <body id="bodyid">
+        {% block templatemo_menu_wrapper %}
+            <div id="templatemo_menu_wrapper">
+
+                <div id="templatemo_menu">
+
+                    <ul>
+                        <li><a href="{{ path('index') }}" class="current">Home</a></li>
+                        <li><a href="#" target="_parent">Contact Us</a></li>
+                        <li><a href="#" target="_parent">Log in</a></li>
+                        <li><a href="#" target="_parent">Register</a></li>
+
+
+
+                    </ul>
+                    <div id="cart">
+                        <a href="{{ url('show_cart', {'carttype':10})}}"><img src="{{asset('bundles/cartshopcart/images/wl.jpg')}}" width="32" height="32" align="middle" /></a>
+                        {% block spancart %}<span> items in wish list</span>{% endblock %}
+                        <a href="{{ url('show_cart', {'carttype':1})}}"><img src="{{asset('bundles/cartshopcart/images/icon_shopcart.png')}}" width="32" height="32" align="middle" /></a>
+                        <span> items in cart</span></div>    	
+
+                </div> 
+                <!-- end of templatemo_menu -->
+
+            </div> <!-- end of templatemo_menu_wrapper -->    
+        {% endblock %}
+        {% block templatemo_header_wrapper %}
+            <div id="templatemo_header_wrapper">
+
+                <div id="templatemo_header">
+
+                    <div id="site_title">
+
+                        <h1><a href="#" target="_parent">
+                                <img src="{{asset('bundles/cartshopcart/images/templatemo_logo.png')}}" alt="Site Title" />
+                                <span>One size Fits All</span>
+                            </a></h1>
+
+                    </div> <!-- end of site_title -->
+
+                </div> <!-- end of templatemo_header -->
+
+            </div> <!-- end of templatemo_header_wrapper -->
+        {% endblock %}
+        {% block templatemo_slider_wrapper %}
+            <div id="templatemo_slider_wrapper">
+
+                <div id="templatemo_slider">
+
+                    <div id="latest_product_slider">
+
+                        <div id="SlideItMoo_outer">	
+                            <div id="SlideItMoo_inner">			
+                                <div id="SlideItMoo_items">
+                                    <div class="SlideItMoo_element">
+                                        <a href="#">
+                                            <img src="{{asset('bundles/cartshopcart/images/dress.png')}}" alt="product 1" /></a>
+
+                                    </div>	
+                                    <div class="SlideItMoo_element">
+                                        <a href="#">
+                                            <img src="{{asset('bundles/cartshopcart/images/t-shirt.png')}}" alt="product 2" /></a>
+
+                                    </div>
+                                    <div class="SlideItMoo_element">
+                                        <a href="#">
+                                            <img src="{{asset('bundles/cartshopcart/images/pants.png')}}" alt="product 3" /></a>
+
+                                    </div>
+                                    <div class="SlideItMoo_element">
+                                        <a href="#">
+                                            <img src="{{asset('bundles/cartshopcart/images/skinny.png')}}" alt="product 4" /></a>
+
+                                    </div>
+                                    <div class="SlideItMoo_element">
+                                        <a href="#">
+                                            <img src="{{asset('bundles/cartshopcart/images/shoes.png')}}" alt="product 5" /></a>
+
+                                    </div>
+                                    <div class="SlideItMoo_element">
+                                        <a href="#">
+                                            <img src="{{asset('bundles/cartshopcart/images/vis.png')}}" alt="product 6" /></a>
+
+                                    </div>
+                                    <div class="SlideItMoo_element">
+                                        <a href="#">
+                                            <img src="{{asset('bundles/cartshopcart/images/man.png')}}" alt="product 7" /></a>
+                                    </div>
+                                    <div class="SlideItMoo_element">
+                                        <a href="#">
+                                            <img src="{{asset('bundles/cartshopcart/images/skirt.png')}}" alt="product 8" /></a>
+                                    </div>
+                                </div>			
+                            </div>
+                        </div>
+
+                    </div> <!-- end of latest_product_slider -->
+
+                </div> <!-- end of templatemo_slider -->
+
+            </div> <!-- end of templatemo_slider_wrapper -->
+        {% endblock %}
+        <div id="templatemo_content_wrapper">
+            {%block searchcategory %}
+
+            {%endblock %}
+            <div id="templatemo_content"><!-- div who wrap body-->
+
+                <!--11111111111111111111111111111body111111111111111111111111111111-->
+                {%block content_section %}
+                    {# body in index.html.twig#}
+                {%endblock%}
+            </div> <!-- end of templatemo_content --><!-- end div who wrap body-->
+
+
+            <div class="cleaner"></div>
+
+        </div> <!-- end of templatemo_content_wrapper -->
+        <div id="templatemo_content_wrapper_bottom"></div>
+        {% block templatemo_footer %}
+            <div id="templatemo_footer">
+
+                <ul class="footer_menu">
+                    <li><a href="{{ path('index') }}">Home</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li class="last_menu"><a href="#">Login</a></li>
+                </ul>
+
+                Copyright © 2015 <a href="#">Sara E-Salem</a>  
+            </div> 
+            <!-- end of footer -->
+        {% endblock %}
+
+    </body>
+</html>
