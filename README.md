@@ -1,2 +1,10 @@
 # shopcart-symfony2
-shopcart by symfony2 ,ajax
+
+Toals Used :
+PHP
+Symfony2 Framework
+JavaScript
+Ajax
+Real Web Site Template
+Netbeans IDE
+
